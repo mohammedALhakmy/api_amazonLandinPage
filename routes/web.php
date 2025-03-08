@@ -28,3 +28,7 @@ require __DIR__.'/auth.php';
 // npm i vue-material-design-icons
 // php artisan make:controller Api/SettingController --invokable
 // php  artisan make:resource SettingResource
+// jwt => json web token
+// Laravel Sanctum
+
+
