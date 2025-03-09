@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Api\AdController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\DistrictsController;
@@ -16,7 +17,7 @@ Route::controller(AuthController::class)->group(function () {
 
     Route::post('register', 'register');
     Route::post('/login', 'login');
-    Route::post('/logout', 'logout');
+    Route::post('/logout', 'logout')->middleware('auth:sanctum');
     Route::post('/refresh', 'refresh');
 });
 
@@ -40,3 +41,11 @@ Route::post('/message',MessageController::class);
 ## --------------   Message MODULE   --------------
 //Route::get('/city/{city_id}',DistrictsController::class);
 Route::get('/domain',DomainContoller::class);
+
+
+## ----------- ADS MODULE ------------
+Route::prefix('ads')->controller(AdController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/latest', 'latest');
+    Route::get('/latest/{domain_id}', 'domain');
+});

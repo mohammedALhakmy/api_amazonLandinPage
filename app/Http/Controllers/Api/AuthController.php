@@ -71,9 +71,10 @@ class AuthController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function logout(Request $request)
     {
-        //
+        $request->user()->currentAccessToken()->delete();
+        return ApiResponse::sendResponse(200, "User Logged Out Successfully",[]);
     }
 
     /**
