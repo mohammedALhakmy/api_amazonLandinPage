@@ -48,4 +48,13 @@ Route::prefix('ads')->controller(AdController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/latest', 'latest');
     Route::get('/latest/{domain_id}', 'domain');
+    Route::get('search','search');
+
+    // User Ads endpoints
+    Route::middleware('auth:sanctum')->group(function (){
+        Route::post('create', 'create');
+        Route::post('update/{id}', 'update');
+        Route::get('delete/{id}', 'delete');
+        Route::get('myApps', 'myApps');
+    });
 });
