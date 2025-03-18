@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\DistrictsController;
 use App\Http\Controllers\Api\DomainContoller;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\SettingController;
+use App\Http\Controllers\Api\UplaodImagecontroller;
 use Illuminate\Support\Facades\Route;
 
 //Route::apiResources([]);
@@ -57,4 +58,14 @@ Route::prefix('ads')->controller(AdController::class)->group(function () {
         Route::get('delete/{id}', 'delete');
         Route::get('myApps', 'myApps');
     });
+});
+
+Route::post('/registerPassport',[AuthController::class,'register']);
+
+Route::post('/login',[AuthController::class,'login']);
+
+
+Route::middleware('auth:sanctum')->controller(UplaodImagecontroller::class)->prefix("upload")->group(function () {
+    Route::get('/','index');
+    Route::post('/store','store');
 });

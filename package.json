@@ -20,6 +20,8 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
-        "vue-material-design-icons": "^5.3.1"
+        "animate.css": "^4.1.1",
+        "vue-material-design-icons": "^5.3.1",
+        "vue3-carousel": "^0.15.0"
     }
 }
