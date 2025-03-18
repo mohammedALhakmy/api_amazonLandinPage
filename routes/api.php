@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\DomainContoller;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\UplaodImagecontroller;
+use App\Http\Controllers\AutherController;
 use Illuminate\Support\Facades\Route;
 
 //Route::apiResources([]);
@@ -69,3 +70,10 @@ Route::middleware('auth:sanctum')->controller(UplaodImagecontroller::class)->pre
     Route::get('/','index');
     Route::post('/store','store');
 });
+
+
+Route::get('author/search/{search}', [AutherController::class, 'search']);
+Route::apiResource('author', AutherController::class);
+
+
+Route::get('login2', [AuthController::class, 'login2']);

@@ -68,9 +68,11 @@ class AuthController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    public function login2(Request $request)
+    {
+
+    }
+
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
