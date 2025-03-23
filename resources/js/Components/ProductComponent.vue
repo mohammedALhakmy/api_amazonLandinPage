@@ -7,7 +7,7 @@ const {product} = toRefs(props);
 
 <template>
     <div class="border border-gray-300 rounded-md bg-white p-1.5">
-        <Link>
+        <Link :href="route('product.index', product.id)">
             <img class="rounded-md" :src="product.image" alt="">
             <div class="text-left">
                 <div class="text-[16px] text-gray-900 font-extrabold cursor-pointer">
